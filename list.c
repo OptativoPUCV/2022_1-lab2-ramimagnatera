@@ -42,7 +42,7 @@ void * firstList(List * list) {
 
   if(list->head == NULL) return NULL;
   
-  list->current = list->head;
+  if (list->head != NULL) list->current = list->head;
   
   return (list->current->data);
 }
@@ -51,7 +51,7 @@ void * nextList(List * list) {
 
   if(list->current->next == NULL) return NULL;
 
-  list->current->next = list->current;
+  if(list->current->next != NULL) list->current->next = list->current;
   
   return (list->current->data);
 }
