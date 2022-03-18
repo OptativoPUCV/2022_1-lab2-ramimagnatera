@@ -32,7 +32,7 @@ int main( int argc, char *argv[] ){
         aux=nextList(movies);
     }
 
-    
+    //
 
     return 0;
 }
