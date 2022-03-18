@@ -83,6 +83,7 @@ void * prevList(List * list) {
 void pushFront(List * list, void * data){
     Node* new = createNode(data);
     
+    //Verifico que la lista no esté vacia
     if (list->head!=NULL){
         new->next=list->head;
         list->head->prev=new;
@@ -99,7 +100,26 @@ void pushBack(List * list, void * data) {
     pushCurrent(list,data);
 }
 
-void pushCurrent(List * list, void * data) {
+void pushCurrent(List * list, void * data){
+
+    Node *new=createNode(data);
+
+    //en caso de que esté vacio
+    if(list->current==NULL) list->current=new;
+
+    //en caso de que sea el último nodo
+    if(list->current->next==NULL){
+        new->prev=list->current;
+        list->current->next=new;
+        list->tail=new;
+    }
+
+    //en caso de que sea el primer nodo
+    if(list->current->prev==NULL){
+        new->prev=list->current;
+        new->next=list->current->next;
+        list->current->next=new;
+    }
 }
 
 void * popFront(List * list) {
