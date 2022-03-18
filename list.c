@@ -132,7 +132,36 @@ void * popBack(List * list) {
     return popCurrent(list);
 }
 
-void * popCurrent(List * list) {
+void * popCurrent(List * list){
+    void *eliminado = list->current->data;
+    Node *resp = list->current; 
+
+    //en caso que sea el primer nodo
+    if(resp->prev == NULL){
+        list->head = resp->next;
+        list->head->prev = NULL;
+        list->current = resp->next;
+        free(resp);
+        return eliminado;
+    } 
+
+    //en caso de que sea el último nodo
+    if(resp->next == NULL){
+        list->tail = resp->prev;
+        list->tail->next  = NULL;
+        list->current = resp->prev;
+        free(resp);
+        return eliminado;
+    }
+
+    //en caso de que este vacío
+    if(list != NULL){
+        resp->prev->next = list->current->next;
+        resp->next->prev = list->current->prev;
+        list->current = resp->next;
+        free(resp);
+        return eliminado;
+    }
     return NULL;
 }
 
