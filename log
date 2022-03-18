@@ -36,3 +36,17 @@ Fri Mar 18 14:37:51 UTC 2022:
  tests:  1|5
 total_score: 10/70
 82f0cd3
+Fri Mar 18 14:53:57 UTC 2022: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘firstList’:
+list.c:47:3: error: expected ‘;’ before ‘return’
+   return (list->current->data);
+   ^~~~~~
+list.c:48:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1: all warnings being treated as errors
+Compilation failed
+ca75a85
