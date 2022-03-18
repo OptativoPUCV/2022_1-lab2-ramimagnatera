@@ -30,3 +30,9 @@ list.c:38:12: error: return from incompatible pointer type [-Werror=incompatible
 cc1: all warnings being treated as errors
 Compilation failed
 62bfd40
+Fri Mar 18 14:37:51 UTC 2022: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  1|5
+total_score: 10/70
+82f0cd3
